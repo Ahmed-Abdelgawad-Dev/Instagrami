@@ -1,9 +1,9 @@
-from django.views import generic
+from rest_framework import viewsets, permissions
 from .models import Post
-
-class PostList(generic.ListView):
-    queryset = Post.objects.filter(status=1).order_by('-created')
+from .serializers import PostSerializer
 
 
-class PostDetail(generic.DetailView):
-    model = Post
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.AllowAny]

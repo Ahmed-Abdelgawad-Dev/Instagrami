@@ -1,7 +1,8 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import AfterHeader from "../components/AfterHeader";
+import Posts from "../components/Posts";
 
 const Home: NextPage = () => {
     return (
@@ -14,8 +15,11 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />
-            <AfterHeader />
+            <main>
+                <Header />
+                <AfterHeader />
+                <Posts posts={undefined} />
+            </main>
         </div>
     );
 };

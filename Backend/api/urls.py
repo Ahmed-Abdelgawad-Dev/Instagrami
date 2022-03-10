@@ -1,7 +1,12 @@
-from django.urls import path
-from .views import PostList, PostDetail
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import UserViewSet
 
+# Create a router and register our viewsets with it.
+router = DefaultRouter()
+router.register(r'posts', UserViewSet)
+
+# The API URLs are now determined automatically by the router.
 urlpatterns = [
-    path('', PostList.as_view(), name='post_list'),
-    path('<slug:slug>/', PostDetail.as_view(), name='post_detail')
+    path('', include(router.urls)),
 ]
