@@ -5,7 +5,7 @@ import AfterHeader from "../components/AfterHeader";
 
 const Home: NextPage = () => {
     return (
-        <div className="min-w-2xl max-w-6xl mx-auto">
+        <div className="min-w-2xl max-w-7xl mx-auto">
             <Head>
                 <title>Mediumize</title>
                 <meta
