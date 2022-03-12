@@ -1,8 +1,8 @@
+import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 import os
 load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'users',
     'api',
 ]
 
@@ -82,11 +83,16 @@ REST_FRAMEWORK = {
 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny'
-    ]
+    # # Use Django's standard `django.contrib.auth` permissions,
+    # # or allow read-only access for unauthenticated users.
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.AllowAny'
+    # ]
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(hours=5),
+    "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=2),
 }
 
 # Password validation
@@ -135,3 +141,6 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3002',
     'http://localhost:3003',
 ]
+
+
+AUTH_USER_MODEL = 'users.CustomUser'
