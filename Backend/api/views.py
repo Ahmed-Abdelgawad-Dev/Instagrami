@@ -3,7 +3,7 @@ from .models import Post
 from .serializers import PostSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.AllowAny]
