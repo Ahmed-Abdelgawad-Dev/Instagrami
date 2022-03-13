@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import AfterHeader from "../components/AfterHeader";
+import Page from "../components/page";
 
 const Home: NextPage = () => {
     return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Page />
             <Header />
             <main>
                 <AfterHeader />
