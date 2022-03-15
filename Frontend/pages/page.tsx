@@ -1,11 +1,12 @@
 import { InferGetServerSidePropsType } from "next";
+// const axios = require("axios").default;
 
 const Page = ({
     data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
         <div>
-            <div>{JSON.stringify(data)}</div>
+            <pre>{JSON.stringify(data, null, 4)}</pre>
         </div>
     );
 };
