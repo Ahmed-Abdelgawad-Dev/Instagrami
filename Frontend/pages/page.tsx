@@ -1,5 +1,4 @@
 import { InferGetServerSidePropsType } from "next";
-// const axios = require("axios").default;
 
 const Page = ({
     data,
