@@ -6,7 +6,6 @@ import { Props } from "../typings/types";
 import Link from "next/link";
 
 const Home = ({ posts }: Props) => {
-  // console.log(posts);
   return (
     <Layout>
       <div className="min-w-2xl max-w-7xl mx-auto">
@@ -18,11 +17,22 @@ const Home = ({ posts }: Props) => {
         <Header />
         <main>
           <AfterHeader />
-
           {/* Posts */}
           {posts.map((post) => (
             <Link key={post.slug} href={`${post.img as any as string}`}>
-              <img src={post.img ?? post.img} width={300} height={300} />
+              <div className="flex justify-between p-5 bg-white">
+                <img
+                  src={post.img ?? post.img}
+                  width={100}
+                  height={100}
+                  alt="Image Post"
+                />
+                <div className="flex justify-between p-5 bg-white">
+                  <div>
+                    {post.title} | {post.content} | {post.author_name}
+                  </div>
+                </div>
+              </div>
             </Link>
           ))}
         </main>
