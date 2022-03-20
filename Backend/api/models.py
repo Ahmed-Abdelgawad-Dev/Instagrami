@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.conf import settings
 
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
@@ -14,7 +15,8 @@ class Post(models.Model):
     content = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    img = models.ImageField(upload_to='images/', blank=True)
+    img = models.ImageField(upload_to='images/',
+                            blank=True, default='static/images/No-Image.jpg')
 
     class Meta:
         ordering = ['-created']
