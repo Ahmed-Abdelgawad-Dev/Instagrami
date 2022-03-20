@@ -14,7 +14,7 @@ class Post(models.Model):
     # author_name = models.CharField(
     #     blank=False, null=False, max_length=100)
     author_name = models.CharField(
-        default='No name Provided', max_length=255)
+        default='No name', max_length=255)
     updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created = models.DateTimeField(auto_now_add=True)

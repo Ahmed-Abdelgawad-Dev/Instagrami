@@ -1,4 +1,5 @@
 export interface Post {
+    author_name: ReactNode;
     title: string;
     slug: string;
     author: boolean;
