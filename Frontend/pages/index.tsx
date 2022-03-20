@@ -22,15 +22,7 @@ const Home = ({ posts }: Props) => {
           {/* Posts */}
           {posts.map((post) => (
             <Link key={post.slug} href={`${post.img as any as string}`}>
-              <img
-                src={
-                  post.img
-                    ? post.img
-                    : "https://media.istockphoto.com/vectors/no-image-available-sign-vector-id922962354?k=20&m=922962354&s=612x612&w=0&h=f-9tPXlFXtz9vg_-WonCXKCdBuPUevOBkp3DQ-i0xqo="
-                }
-                width={300}
-                height={300}
-              />
+              <img src={post.img ?? post.img} width={300} height={300} />
             </Link>
           ))}
         </main>
@@ -42,8 +34,6 @@ const Home = ({ posts }: Props) => {
 export const getServerSideProps = async () => {
   const res = await fetch(`http://127.0.0.1:8000/posts/`);
   const posts = await res.json();
-  console.log(posts);
-
   if (!posts) {
     return {
       notFound: true,
