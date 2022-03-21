@@ -18,19 +18,19 @@ const Home = ({ posts }: Props) => {
         <main>
           <AfterHeader />
           {/* Posts */}
-          <div className="grid grid-cols-1 sm:grid-col-2 lg:grid-col-3 gap-3 md:gap-6 p-2 md:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 md:p-3 lg:p-4">
             {posts.map((post) => (
               <Link key={post.slug} href={`${post.img as any as string}`}>
-                <div className="group">
+                <div className="border rounded-lg group cursor-pointer overflow-hidden">
                   <img
-                    className="h-60 w-full object-cover group-hover:scale-105"
+                    className="h-60 w-full object-cover group-hover:scale-105 transition-transform duration-75 ease-in"
                     src={post.img ?? post.img}
                     alt="Image Post"
                   />
                   <div className=" bg-yellow-50 flex justify-between p-6">
                     <div>
                       <p className="font-extrabold">{post.title}</p>
-                      <p className="">
+                      <p className="text-xsm">
                         {post.content} by {post.author_name}
                       </p>
                     </div>
