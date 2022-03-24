@@ -16,16 +16,13 @@ const Post = ({ post }: Props) => {
   );
 };
 
-export default Post;
-
 export const getStaticPaths = async () => {
   const res = await fetch("http://127.0.0.1:8000/posts");
-  const res2 = await res.json();
-  const posts = JSON.parse(res2);
+  const posts = await res.json();
 
   const paths = posts.map((post: Post) => ({
     params: {
-      slug: post.slug,
+      slug: post?.slug,
     },
   }));
   return {
@@ -35,14 +32,14 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  let slug = `0`;
-  const query = `http://127.0.0.1:8000/posts/${slug}`;
-  const post = await fetch(query, {
+  const p = await fetch(`http://127.0.0.1:8000/posts`, {
     slug: params?.slug,
   } as any);
-
+  const post = await p.json();
   if (!post) {
     return { notFound: true };
   }
-  return { props: { post } };
+  return { props: { post }, revalslugate: 60 };
 };
+
+export default Post;
