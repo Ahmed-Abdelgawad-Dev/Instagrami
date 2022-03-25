@@ -8,7 +8,6 @@ interface Props {
 
 const Post = ({ post }: Props) => {
   console.log(post);
-
   return (
     <main>
       <Header />
@@ -17,8 +16,8 @@ const Post = ({ post }: Props) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://127.0.0.1:8000/posts");
-  const posts = await res.json();
+  const query = await fetch("http://127.0.0.1:8000/posts");
+  const posts = await query.json();
 
   const paths = posts.map((post: Post) => ({
     params: {
@@ -32,14 +31,14 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const p = await fetch(`http://127.0.0.1:8000/posts`, {
+  const query = await fetch(`http://127.0.0.1:8000/posts`, {
     slug: params?.slug,
   } as any);
-  const post = await p.json();
+  const post = await query.json();
   if (!post) {
     return { notFound: true };
   }
-  return { props: { post }, revalslugate: 60 };
+  return { props: { post }, revalidate: 60 };
 };
 
 export default Post;
