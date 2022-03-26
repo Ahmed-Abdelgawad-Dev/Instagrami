@@ -11,6 +11,14 @@ const Post = ({ post }: Props) => {
   return (
     <main>
       <Header />
+      <img src="" alt="IMAGE GOES HERE" />
+      <article></article>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, maiores
+        saepe. Sed, tempore numquam. Repellendus rerum commodi maxime et
+        placeat, dolore reprehenderit. Optio totam nemo perferendis dicta
+        necessitatibus dolores voluptas.
+      </p>
     </main>
   );
 };
