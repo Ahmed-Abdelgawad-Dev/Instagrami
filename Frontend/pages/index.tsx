@@ -20,7 +20,10 @@ const Home = ({ posts }: Props) => {
           {/* Posts */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 md:p-3 lg:p-4">
             {posts.map((post) => (
-              <Link key={post.slug} href={`${post.img as any as string}`}>
+              <Link
+                key={post.slug}
+                href={`http://localhost:3000/post/${post.slug}`}
+              >
                 <div className="border rounded-lg group cursor-pointer overflow-hidden">
                   <img
                     className="h-60 w-full object-cover group-hover:scale-105 transition-transform duration-75 ease-in"
