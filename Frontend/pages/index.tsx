@@ -38,7 +38,7 @@ const Home = ({ posts }: Props) => {
                       </p>
                     </div>
                     <img
-                      className="h-12 w-12 rounded-full"
+                      className="h-12 w-12 rounded-full p-6"
                       src={post.img ?? post.img}
                       alt="Post Image"
                     />
