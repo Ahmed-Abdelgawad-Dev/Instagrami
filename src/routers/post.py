@@ -1,6 +1,8 @@
 from fastapi import APIRouter, Depends, status, File, UploadFile
 from fastapi.exceptions import HTTPException
 import shutil
+from schemas.users import UserAuth
+from auth.oauth2 import get_current_user
 import datetime
 from typing import List
 from views.post import (
@@ -21,7 +23,7 @@ router = APIRouter(
 img_url_types = ['relative', 'absolute']
 
 @router.post('/create', response_model=PostDisplay)
-def create_post(request: PostBase, db: Session = Depends(get_db)):
+def create_post(request: PostBase, db: Session = Depends(get_db), current_user: UserAuth = Depends(get_current_user)):
     if request.img_url_type  not in img_url_types:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -35,7 +37,7 @@ def get_posts(db: Session = Depends(get_db)):
     return get_posts_(db)
 
 @router.post('/upload_file')
-def upload_file(image_: UploadFile = File(description='Upload a file')):
+def upload_file(image_: UploadFile = File(description='Upload ( Image or File)')):
     uploaded_file_name = f'{datetime.datetime.now()}__{image_.filename}'
     file_ = f"images/{uploaded_file_name}"
     with open (file_, 'w+b') as  file__uploaded:
