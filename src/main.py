@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
@@ -21,3 +22,8 @@ async def main():
 user.Base.metadata.create_all(engine)
 post.Base.metadata.create_all(engine)
 app.mount('/images', StaticFiles(directory='images'), name='images')
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
