@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from .comments import Comment
+from typing import List
 
 
 class User(BaseModel):
@@ -24,5 +25,6 @@ class PostDisplay(BaseModel):
     timestamp   : datetime
     user_id     : int
     user        : User
+    comments    : List[Comment]
     class Config():
         orm_mode = True

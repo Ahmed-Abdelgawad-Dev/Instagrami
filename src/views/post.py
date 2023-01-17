@@ -1,11 +1,10 @@
 from sqlalchemy.orm.session import Session
 from datetime import datetime
 from fastapi import Response
-from typing import List
 from schemas.posts import PostBase
 from db.models.post import PostModel
 from fastapi.exceptions import HTTPException
-from fastapi import status, Depends
+from fastapi import status
 from db.config import get_db, Base
 
 
@@ -28,7 +27,7 @@ def get_posts(db: Session):
     return posts
 
 
-async def delete_post(db: Session, id: int, user_id: int) -> Response:
+def delete_post(db: Session, id: int, user_id: int):
     post = db.query(PostModel).filter(PostModel.id == id).first()
     print(post.id)
     if not post:

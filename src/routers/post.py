@@ -4,7 +4,6 @@ from fastapi import Response
 import shutil
 from typing import List
 from sqlalchemy.orm.session import Session
-from fastapi.responses import JSONResponse
 
 from schemas.users import UserAuth
 from auth.oauth2 import get_current_user
@@ -14,7 +13,7 @@ from views.post import (
     create_post as create_post_, get_posts as get_posts_, delete_post as delete_post_
 )
 from views.user import get_user
-from schemas.posts import PostDisplay, PostBase, User
+from schemas.posts import PostDisplay, PostBase
 from db.config import get_db, Base
 
 
@@ -53,6 +52,6 @@ def upload_file(image_: UploadFile = File(description='Upload ( Image or File)')
     }
 
 
-@router.get('/delete/{id}')
-async def delete_post(id: int, db: Session = Depends(get_db), active_user: UserAuth = Depends(get_user)) -> Response:
+@router.delete('/delete/{id}')
+def delete_post(id: int, db: Session = Depends(get_db), active_user: UserAuth = Depends(get_current_user)):
     return delete_post_(db, id, active_user.id)
