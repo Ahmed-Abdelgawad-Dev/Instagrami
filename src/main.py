@@ -4,13 +4,14 @@ from fastapi.staticfiles import StaticFiles
 
 from db.config import engine
 from db.models import user, post
-from routers import user, post
+from routers import user, post, comment
 from auth import authentication
 
 
 app = FastAPI()
 app.include_router(user.router)
 app.include_router(post.router)
+app.include_router(comment.router)
 app.include_router(authentication.router)
 
 
@@ -21,6 +22,7 @@ async def main():
 
 user.Base.metadata.create_all(engine)
 post.Base.metadata.create_all(engine)
+comment.Base.metadata.create_all(engine)
 app.mount('/images', StaticFiles(directory='images'), name='images')
 
 

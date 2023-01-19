@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from db.config import Base
 
 
+
 class CommentModel(Base):
     __tablename__ = 'comment'
     id        = Column(Integer, primary_key=True, index=True)

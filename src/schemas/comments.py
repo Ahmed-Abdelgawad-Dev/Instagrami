@@ -3,14 +3,16 @@ from datetime import datetime
 
 
 class Comment(BaseModel):
-    text    : str
+    text: str
     username: str
-    timestamp : datetime
+    post_id: int
+    timestamp: datetime
     class Config():
         orm_mode = True
 
 
 class CommentBase(BaseModel):
-    username: str
-    text    : str
-    post_id : int
+    text     : str
+    username : str
+    post_id  : int
+    timestamp: datetime
