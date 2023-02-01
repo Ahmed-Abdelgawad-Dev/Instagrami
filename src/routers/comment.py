@@ -1,12 +1,12 @@
 from typing import List
 from sqlalchemy.orm.session import Session
 from fastapi import APIRouter, Depends
+
 from schemas.users import UserAuth
-from typing import List
 
 from views.comment import (
-    comment_create as comment_create_,
-    comment_list as comment_list_
+    create as create_comment__,
+    comments as comments_list__
 )
 from auth.oauth2 import get_current_user
 from views.user import get_user
@@ -20,13 +20,11 @@ router = APIRouter(
 )
 
 
+@router.get('/all-comments/{post_id}')
+def comment_list(post_id: int, db: Session = Depends(get_db)):
+    return comments_list__(db, post_id)
+
+
 @router.post('/create')
 def comment_create(request: CommentBase, db: Session = Depends(get_db), current_user: UserAuth = Depends(get_current_user)):
-    return comment_create_(db, request)
-
-
-
-@router.get('/all/{post_id}', response_model=Comment)
-def comment_list(post_id: int, db: Session = Depends(get_db)):
-    return comment_list_(db, post_id)
-
+    return create_comment__(db, request)

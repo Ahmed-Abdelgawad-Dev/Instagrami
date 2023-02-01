@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/media/ahmed/All/my-projects/Instagrami/venv"
+VIRTUAL_ENV="/media/ahmed/All/software/my-projects/Instagrami/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

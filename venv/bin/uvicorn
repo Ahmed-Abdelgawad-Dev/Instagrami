@@ -1,4 +1,4 @@
-#!/media/ahmed/All/my-projects/Instagrami/venv/bin/python
+#!/media/ahmed/All/software/my-projects/Instagrami/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
