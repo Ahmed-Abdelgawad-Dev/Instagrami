@@ -16,7 +16,13 @@ app.include_router(comment.router)
 app.include_router(authentication.router)
 
 
-origins = ['http://localhost:3000']
+origins = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:3002',
+    'http://localhost:3003',
+    'http://localhost:3004',
+]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

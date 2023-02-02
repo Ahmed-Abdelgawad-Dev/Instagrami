@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
+import Nav from './Nav';
 import './App.css';
 
 export const apiURL = 'http://localhost:8000/'
@@ -22,9 +23,9 @@ export default function App() {
   }, [])
   return (
     <div className="App">
-      <div className='app-posts'>
+      <Nav/>
+      <div className='mt-0 bg-slate-100'>
         {
-          // eslint-disable-next-line array-callback-return
           posts.map((post, idx) => (
             <Post key={idx} post={post} />
           ))
