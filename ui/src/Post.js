@@ -22,7 +22,7 @@ export default function Post({ post }) {
         <div className='flex'>
           <i className="fa-regular fa-user flex-none mr-5 mt-4 ml-3" />
           <span className='flex-auto mr-56 text-gray-700 mt-3'>{post.user.username}</span>
-          <button type="button" className="flex-auto w-1/12 focus:outline-none text-white bg-red-600 hover:bg-red-80 focus:ring-4 focus:ring-red-600 font-medium rounded-lg text-sm p-1  m-2 dark:bg-red-500 dark:hover:bg-red-700 dark:focus:ring-red-900">delete</button>
+          <button type="button" className="flex-auto w-1/12 focus:outline-none text-white bg-gray-600 hover:bg-gray-800 focus:ring-red-600 font-medium rounded-lg text-sm p-1  m-2 dark:bg-red-500 dark:hover:bg-red-700 dark:focus:ring-red-900">delete</button>
 
         </div>
       </div>
