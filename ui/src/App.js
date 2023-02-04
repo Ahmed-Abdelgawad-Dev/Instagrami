@@ -6,6 +6,8 @@ import './App.css';
 export const apiURL = 'http://localhost:8000/'
 export default function App() {
   const [posts, setPosts] = useState([])
+
+
   useEffect(() => {
     fetch(apiURL + 'posts')
     .then((response) => {
