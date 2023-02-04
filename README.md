@@ -1,7 +1,7 @@
 
 <p align="center">
-  <img src="pics/React_Login.png" />
-  <img src="pics/React_Scrshoot.png" />
+  <img src="pics/React_Login.png" width=600 height=400/>
+  <img src="pics/React_Scrshoot.png" width=600 height=400/>
 </p>
 # Instagrami
 
@@ -18,21 +18,21 @@ SQLITE is used, but any other database can be used instead in case of production
 ##### Database Schema:
 
 <p align="center">
-  <img src="pics/db_schema.png" />
+  <img src="pics/db_schema.png" width=600 height=400 />
 </p>
 
 ---
 ##### Authentication OAuth2 is used :
 
 <p align="center">
-  <img src="pics/oauth.png" />
+  <img src="pics/oauth.png" width=600 height=400/>
 </p>
 
 ---
 ##### Endpoints :
 
 <p align="center">
-  <img src="pics/endpoints.png" />
+  <img src="pics/endpoints.png" width=600 height=400/>
 </p>
 
 ---
