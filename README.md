@@ -3,6 +3,7 @@
   <img src="pics/React_Login.png" width=600 height=400/>
   <img src="pics/React_Scrshoot.png" width=600 height=400/>
 </p>
+
 # Instagrami
 
 Backend FastAPI & React UI
