@@ -1,7 +1,7 @@
 
 <p align="center">
   <img src="pics/React_Login.png"/>
-  <img src="pics/React_Scrshoot.png" width=800 height=700/>
+  
 </p>
 
 # Instagrami
