@@ -78,4 +78,4 @@ npm install || yarn
 * Run the server:
 
 ```shell
-npm ru start
+npm run start
